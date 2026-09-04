@@ -4,11 +4,12 @@ const langToggle = document.getElementById('langToggle');
 
 const translations = {
   ko: {
-    title: '승원 | Portfolio',
-    description: '항공우주공학과 천문학에 관심이 있는 승원의 포트폴리오입니다.',
+    title: '윤승원 | Portfolio',
+    description: '항공우주공학과 천문학에 관심이 있는 윤승원의 포트폴리오입니다.',
     navLabel: '주요 메뉴',
     menuOpen: '메뉴 열기',
-    name: '승원',
+    name: '윤승원',
+    footerName: '윤승원',
     navAbout: '소개',
     navActivities: '활동',
     navInterests: '관심 분야',
@@ -48,11 +49,12 @@ const translations = {
     careerNote: '아직 구체적인 세부 분야를 하나로 정한 것은 아니지만, 로켓이나 우주비행체를 직접 연구하고 시험하는 일을 해 보고 싶습니다.'
   },
   en: {
-    title: 'Seungwon | Portfolio',
-    description: 'Seungwon’s portfolio focused on aerospace engineering, astronomy, hands-on projects, and research.',
+    title: 'Seungwon Yoon | Portfolio',
+    description: 'Seungwon Yoon’s portfolio focused on aerospace engineering, astronomy, hands-on projects, and research.',
     navLabel: 'Main navigation',
     menuOpen: 'Open menu',
-    name: 'Seungwon',
+    name: 'Seungwon Yoon',
+    footerName: 'Seungwon Yoon',
     navAbout: 'About',
     navActivities: 'Activities',
     navInterests: 'Interests',
@@ -118,6 +120,11 @@ function applyLanguage(lang) {
     if (dict[key] !== undefined) element.setAttribute('aria-label', dict[key]);
   });
 
+  const footerCopyright = document.querySelector('.footer-inner > span');
+  if (footerCopyright) {
+    footerCopyright.textContent = `© ${new Date().getFullYear()} ${dict.footerName}`;
+  }
+
   if (langToggle) {
     langToggle.textContent = lang === 'ko' ? 'EN' : '한국어';
     langToggle.setAttribute('aria-label', lang === 'ko' ? '영어로 전환' : 'Switch to Korean');
@@ -156,9 +163,6 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('[data-reveal]').forEach((element) => observer.observe(element));
-
-const year = document.getElementById('year');
-if (year) year.textContent = new Date().getFullYear();
 
 const savedLanguage = localStorage.getItem('portfolio-language');
 applyLanguage(savedLanguage === 'en' ? 'en' : 'ko');
