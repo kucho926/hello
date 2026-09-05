@@ -145,4 +145,4 @@ const observer = new IntersectionObserver(
 document.querySelectorAll('[data-reveal]').forEach((element) => observer.observe(element));
 
 const savedLanguage = localStorage.getItem('portfolio-language');
-applyLanguage(savedLanguage === 'en' ? 'en' : 'ko');
+applyLanguage(savedLanguage === 'ko' ? 'ko' : 'en');
