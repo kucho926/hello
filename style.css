@@ -183,6 +183,17 @@ button { font: inherit; }
   gap: 4px;
 }
 
+.about-key::before {
+  content: "";
+  display: block;
+  width: 160px;
+  aspect-ratio: 320 / 412;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg-alt) url("profile.svg") center / cover no-repeat;
+}
+
 .about-key span {
   color: var(--muted);
   font-size: .85rem;
@@ -399,6 +410,7 @@ button { font: inherit; }
     gap: 18px;
   }
 
+  .about-key::before { width: 142px; }
   .about-text p { font-size: .98rem; }
 
   .activity-item {
@@ -464,6 +476,12 @@ button { font: inherit; }
   .section-title {
     margin-bottom: 24px;
     font-size: 1.45rem;
+  }
+
+  .about-key::before {
+    width: 120px;
+    margin-bottom: 10px;
+    border-radius: 14px;
   }
 
   .about-key span { font-size: .8rem; }
